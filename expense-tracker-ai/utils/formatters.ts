@@ -57,9 +57,13 @@ export const getMonthName = (dateString: string): string => {
   try {
     const date = new Date(dateString);
 
-    if (typeof Intl !== 'undefined' && Intl.DateFormat) {
-      return new Intl.DateFormat('en-US', { month: 'long', year: 'numeric' }).format(date);
-    }
+    if (typeof Intl !== "undefined" && Intl.DateTimeFormat) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    year: "numeric",
+  }).format(date);
+}
+
 
     // Fallback formatting
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
